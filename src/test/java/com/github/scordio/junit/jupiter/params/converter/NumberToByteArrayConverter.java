@@ -18,13 +18,13 @@ public class NumberToByteArrayConverter extends SimpleArgumentConverter {
     }
 
     if (source instanceof Byte) {
-      return ByteBuffer.allocate(1).put((Byte) source).array();
+      return ByteBuffer.allocate(Byte.BYTES).put((Byte) source).array();
     } else if (source instanceof Short) {
-      return ByteBuffer.allocate(2).putShort((Short) source).array();
+      return ByteBuffer.allocate(Short.BYTES).putShort((Short) source).array();
     } else if (source instanceof Integer) {
-      return ByteBuffer.allocate(4).putInt((Integer) source).array();
+      return ByteBuffer.allocate(Integer.BYTES).putInt((Integer) source).array();
     } else if (source instanceof Long) {
-      return ByteBuffer.allocate(8).putLong((Long) source).array();
+      return ByteBuffer.allocate(Long.BYTES).putLong((Long) source).array();
     } else {
       throw new ArgumentConversionException("Conversion from " + source.getClass().getName() + " is not supported");
     }
